@@ -33,13 +33,18 @@ function initGallery() {
     galleryImages.forEach((imageUrl, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item blood-card';
-        galleryItem.innerHTML = <img src="${imageUrl}" alt="Photo ${index + 1}" class="gallery-img" data-index="${index}">;
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = "Photo " + (index + 1);
+        img.className = 'gallery-img';
+        img.setAttribute('data-index', index);
+        galleryItem.appendChild(img);
         galleryGrid.appendChild(galleryItem);
     });
     
     document.querySelectorAll('.gallery-img').forEach(img => {
         img.addEventListener('click', function() {
-            openModal(parseInt(this.dataset.index));
+            openModal(parseInt(this.getAttribute('data-index')));
         });
     });
 }
@@ -75,8 +80,8 @@ function changeImage(direction) {
 }
 
 document.querySelector('.close-btn').addEventListener('click', closeModal);
-document.querySelector('.prev-btn').addEventListener('click', () => changeImage(-1));
-document.querySelector('.next-btn').addEventListener('click', () => changeImage(1));
+document.querySelector('.prev-btn').addEventListener('click', function() { changeImage(-1); });
+document.querySelector('.next-btn').addEventListener('click', function() { changeImage(1); });
 
 document.getElementById('galleryModal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
@@ -91,7 +96,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-document.querySelectorAll('.nav-link').forEach(link => {
+document.querySelectorAll('.nav-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         const targetSection = document.querySelector(this.getAttribute('href'));
