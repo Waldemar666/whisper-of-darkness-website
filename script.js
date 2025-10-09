@@ -1,28 +1,28 @@
-// Массив с прямыми ссылками на фотографии
+// Массив с ссылками на фотографии
 const galleryImages = [
-    "https://i.ibb.co/qL02GpL6/photo1.jpg",
-    "https://i.ibb.co/993kkChG/photo2.jpg", 
-    "https://i.ibb.co/3mfmdQXw/photo3.jpg",
-    "https://i.ibb.co/zhJsG6DC/photo4.jpg",
-    "https://i.ibb.co/4nb4JF7H/photo5.jpg",
-    "https://i.ibb.co/nsvH8r3z/photo6.jpg",
-    "https://i.ibb.co/7xGQP8pP/photo7.jpg",
-    "https://i.ibb.co/rR2cphwf/photo8.jpg",
-    "https://i.ibb.co/6J4fg42G/photo9.jpg",
-    "https://i.ibb.co/yBdjvwfp/photo10.jpg",
-    "https://i.ibb.co/GfSLGkms/photo11.jpg",
-    "https://i.ibb.co/3966TkwW/photo12.jpg",
-    "https://i.ibb.co/XxckXBHk/photo13.jpg",
-    "https://i.ibb.co/RppvmppL/photo14.jpg",
-    "https://i.ibb.co/XfPZmH9M/photo15.jpg",
-    "https://i.ibb.co/hFGFGHSk/photo16.jpg",
-    "https://i.ibb.co/FkHZLrVM/photo17.jpg",
-    "https://i.ibb.co/k2DNwT72/photo18.jpg",
-    "https://i.ibb.co/vvk4G8MQ/photo19.jpg",
-    "https://i.ibb.co/fdBxdcrb/photo20.jpg",
-    "https://i.ibb.co/CpGnrZT8/photo21.jpg",
-    "https://i.ibb.co/5gL0g8S6/photo22.jpg",
-    "https://i.ibb.co/21bYP1Yf/photo23.jpg"
+    "https://i.ibb.co/HLN9vqLZ/i1smlv-Muchc.webp",
+    "https://i.ibb.co/1fJttwMb/1758893790849.jpg",
+    "https://i.ibb.co/zV8VxDc1/2p-Xgh-Pt-SLg4.jpg",
+    "https://i.ibb.co/C52BhPD4/XHl2kq4-Kc-PMTme-S60p7-YB-GFHp-Ii3ikr57800m-Si-Va7-TNPR5-Am-Pw-PC91-ZUFQqxh-TEGNe-Qs-BQG-s0-Ge-TIs-R.jpg",
+    "https://i.ibb.co/zT3PNmrz/Imac-Zs-HD0-D1-DLy5-Wyasve0jy-N3d-Vrx-Bw7-EP8-Bcx-La-NDuq-T5-JVx5c-Ci-L7r-RDOd9u-TUOgjz-TZW0u-H2-UU8.jpg",
+    "https://i.ibb.co/PZn7zxTw/Vbol-Zi-YMPQv-EH3dn-XEn-Q-S95-NUkd94-UF1z7n0-QWp-NS3-I7-Su5ukt-T6-Oup9m-LWV-xk9j-Za-AF-m5-O-8-LIp-G.jpg",
+    "https://i.ibb.co/wZK7V3QV/h-Du-OXc-HZFOYo3-R7-PYxc44-N4-EDi6-W2q8b-us-VGO7-IEuov-MVh-To625-Wdp-Jg-SMQW4-G0h-ZZyfw-CL61-Ttl-Kw.jpg",
+    "https://i.ibb.co/wFhwQqzr/r-Vz6-HTReis6-LXX6o-K9g-OSBww-H81oss-Dr-DD-y-Bw4q-O9qd-Pwcf-OQeq-Dx1kq-N41iuu-RMs-Bw-S692f-YBJFfvu-R.jpg",
+    "https://i.ibb.co/Kz93F9YB/ez-XIxzcjx-TJz-MAE5c-Eve-F9zet-Z0-D4h-AO0-FC2b-B14qrb-Tjg-Ovz-Nu-gui2-Mr-ZRQd-B-9ys0rf0-L9y-Uut-D7sg.jpg",
+    "https://i.ibb.co/0Vmb4gDK/D284h-IYx-HIbd-Mor-CQr-OG4g-Oamw-BKeom-JIGEfb7-Bff-IQr-F0-K8-Lc-Zr4u-Ejm-FDONn-Yt441kg8v-Lw-Eu-XLO8m.jpg",
+    "https://i.ibb.co/0pbS1Z5B/Wr3-Nv-AZw-i5-XUQKNOqv-Ux7x-SJ0s-Q-k-Sf-Bt-KMxhh-P3-Mi-Gz-HOl-EJVCDyb73k6t-Zb-Iw-Gca-PGt-Du-LVGHJq7.jpg",
+    "https://i.ibb.co/C3CCwWqv/x6z-Kfc-riwod6-CT8-Yjz-GVK2-IH79-QFQI2-TAL9-Xqf0-XVe-Krs1-BTm-Xdc3ym-Ze-Ap-C-sx-LRVQn-Lnj8r3g13-BCl3.jpg",
+    "https://i.ibb.co/YBHT29gT/S6-Kb-Q9-KArd-FZk4ueu9j-WPKa-YB1yyiscme8s-Q-TUBSfqu-C2h81c-WAUtz-A5b4-Ri-Ze-XXHkq-Bfo-JH-y-Dl-Vx-FEt.jpg",
+    "https://i.ibb.co/Z66LP66y/z-Cr-d1-Eg-OP4-I7-ZOi1-Sg-OEl8m-KFdejq-X0n-JTba-SAC5iym-BF7tq-Ae-Vp4wcf-VICPXxv2-A1-SFdl6mq-Mn-GXlz.jpg",
+    "https://i.ibb.co/mrKCQpmg/IMG-20251005-132725-182.jpg",
+    "https://i.ibb.co/0y0y0Zxk/IMG-20251005-132808-626.jpg",
+    "https://i.ibb.co/WNV84htw/IMG-20251008-011720-518.jpg",
+    "https://i.ibb.co/3mFgjb3m/IMG-20251008-011726-452.jpg",
+    "https://i.ibb.co/bRX5ZnG2/IMG-20251008-011729-797.jpg",
+    "https://i.ibb.co/4R9VRQ4c/IMG-20251008-011734-403.webp",
+    "https://i.ibb.co/Kcv91k3h/IMG-20251008-011811-175.jpg",
+    "https://i.ibb.co/jPDNPMQT/IMG-20251008-011824-036.jpg",
+    "https://i.ibb.co/xt48Gt8R/IMG-20251008-011828-206.jpg"
 ];
 
 // Инициализация галереи
@@ -108,58 +108,21 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Плавная прокрутка для навигации
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        window.scrollTo({
+            top: targetSection.offsetTop - 80,
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     initGallery();
-    
-    // Плавная прокрутка для навигации
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Параллакс эффект
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        
-        // Навигация при скролле
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-            navbar.style.padding = '0.5rem 0';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.padding = '1rem 0';
-        }
-    });
-
-    // Анимация появления элементов
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.blood-card, .section-title').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
 });
