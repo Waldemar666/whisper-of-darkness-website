@@ -1,3 +1,5 @@
+
+Waldema, [09.10.2025 15:12]
 * {
     margin: 0;
     padding: 0;
@@ -56,20 +58,6 @@ body {
 
 .nav-link:hover {
     color: #8b0000;
-}
-
-/* Герой секция */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
 }
 
 .hero-content {
@@ -241,6 +229,7 @@ section {
     border-radius: 5px;
 }
 
+Waldema, [09.10.2025 15:12]
 /* Модальное окно */
 .modal {
     display: none;
