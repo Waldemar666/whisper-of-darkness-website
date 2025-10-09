@@ -1,1 +1,444 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотогалерея - WHISPER OF DARKNESS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .blood-text {
+            color: #8b0000;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
+        }
+
+        /* Навигация */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #8b0000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #8b0000;
+        }
+
+        /* Герой секция */
+        .gallery-hero {
+            height: 40vh;
+            background: 
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .gallery-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* Общие стили */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        /* Галерея */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #8b0000;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #modalImage {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #8b0000;
+        }
+
+        /* Навигация в модальном окне */
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .nav-btn {
+            background: rgba(139, 0, 0, 0.7);
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-btn:hover {
+            background: #8b0000;
+            transform: scale(1.1);
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Кнопка назад */
+        .back-btn {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 10px 20px;
+            background: #8b0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #a00;
+        }
+
+        /* Футер */
+        .footer {
+            background: #1a1a1a;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #8b0000;
+            margin-top: 3rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .gallery-title {
+                font-size: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .gallery-img {
+                height: 200px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                height: 95vh;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+                font-size: 16px;
+            }
+            
+            .close-btn {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <span class="blood-text">WHISPER OF DARKNESS</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="index.html#about" class="nav-link">О группе</a>
+                <a href="index.html#members" class="nav-link">Участники</a>
+                <a href="index.html#bio" class="nav-link">Биографии</a>
+                <a href="gallery.html" class="nav-link">Фотогалерея</a>
+                <a href="index.html#contact" class="nav-link">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="gallery-hero">
+        <div class="container">
+            <h1 class="gallery-title blood-text">ФОТОГАЛЕРЕЯ</h1>
+            <p class="gallery-subtitle">Все фотографии группы Whisper Of Darkness</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Фотографии добавляются через JavaScript -->
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Назад на главную
+            </a>
+        </div>
+    </section>
+
+    <!-- Модальное окно для фото -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-nav">
+                <button class="nav-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <img id="modalImage" src="" alt="Whisper Of Darkness">
+            <div class="image-counter">
+                <span id="currentImage">1</span> из <span id="totalImages">23</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <span class="blood-text">WHISPER OF DARKNESS</span>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Массив с фотографиями
+        const galleryImages = [
+            "images/foto1.jpg", "images/foto2.jpg", "images/foto3.jpg",
+            "images/foto4.jpg", "images/foto5.jpg", "images/foto6.jpg", 
+            "images/foto7.jpg", "images/foto8.jpg", "images/foto9.jpg",
+            "images/foto10.jpg", "images/foto11.jpg", "images/foto12.jpg",
+            "images/foto13.jpg", "images/foto14.jpg", "images/foto15.jpg",
+            "images/foto16.jpg", "images/foto17.jpg", "images/foto18.jpg",
+            "images/foto19.jpg", "images/foto20.jpg", "images/foto21.jpg",
+            "images/foto22.jpg", "images/foto23.jpg"
+        ];
+
+        function initGallery() {
+            console.log("🖼️ Загружаем галерею:", galleryImages.length, "фото");
+            const galleryGrid = document.getElementById('galleryGrid');
+            
+            galleryImages.forEach(function(imageUrl, index) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Whisper Of Darkness - Фото ' + (index + 1);
+                img.className = 'gallery-img';
+                img.setAttribute('data-index', index);
+                
+                galleryItem.appendChild(img);
+                galleryGrid.appendChild(galleryItem);
+            });
+            
+            document.querySelectorAll('.gallery-img').forEach(function(img) {
+                img.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    openModal(index);
+                });
+            });
+        }
+
+        let currentImageIndex = 0;
+
+        function openModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = galleryImages[currentImageIndex];
+            document.getElementById('currentImage').textContent = currentImageIndex + 1;
+            document.getElementById('totalImages').textContent = galleryImages.length;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('galleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+            
+            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            document.getElementById('currentImage').textContent = currentImageIndex + 1;
+        }
+
+        // Навешиваем обработчики событий
+        document.querySelector('.close-btn').addEventListener('click', closeModal);
+        document.querySelector('.prev-btn').addEventListener('click', function() { changeImage(-1); });
+        document.querySelector('.next-btn').addEventListener('click', function() { changeImage(1); });
+
+        document.getElementById('galleryModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('galleryModal');
+            if (modal.style.display === 'block') {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+
+        // Запускаем когда страница загрузится
+        document.addEventListener('DOMContentLoaded', function() {
+            initGallery();
+        });
+    </script>
+</body>
+                  </html>
