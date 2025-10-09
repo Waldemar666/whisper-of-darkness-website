@@ -1,6 +1,4 @@
-
-Waldema, [09.10.2025 15:12]
-* {
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -229,7 +227,6 @@ section {
     border-radius: 5px;
 }
 
-Waldema, [09.10.2025 15:12]
 /* Модальное окно */
 .modal {
     display: none;
