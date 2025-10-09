@@ -68,10 +68,9 @@
         /* Герой секция */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
+            background: 
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                #0a0a0a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -218,130 +217,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Галерея */
-        .gallery-subtitle {
-            text-align: center;
-            color: #ccc;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            position: relative;
-            margin: auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 800px;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #modalImage {
-            max-width: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: #fff;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 2001;
-            transition: color 0.3s;
-        }
-
-        .close-btn:hover {
-            color: #8b0000;
-        }
-
-        /* Навигация в модальном окне */
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 20px;
-        }
-
-        .nav-btn {
-            background: rgba(139, 0, 0, 0.7);
-            border: none;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            transition: all 0.3s;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-btn:hover {
-            background: #8b0000;
-            transform: scale(1.1);
-        }
-
-        .image-counter {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
         /* Контакты */
         .contact-section {
             margin-bottom: 3rem;
@@ -434,32 +309,6 @@
             .members-contacts {
                 grid-template-columns: 1fr;
             }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-            
-            .gallery-img {
-                height: 150px;
-            }
-            
-            .modal-content {
-                width: 95%;
-                height: 95vh;
-            }
-            
-            .nav-btn {
-                width: 40px;
-                height: 40px;
-                padding: 10px;
-                font-size: 16px;
-            }
-            
-            .close-btn {
-                top: 10px;
-                right: 15px;
-                font-size: 25px;
-            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -475,7 +324,7 @@
                 <a href="#about" class="nav-link">О группе</a>
                 <a href="#members" class="nav-link">Участники</a>
                 <a href="#bio" class="nav-link">Биографии</a>
-                <a href="#gallery" class="nav-link">Галерея</a>
+                <a href="gallery.html" class="nav-link">Фотогалерея</a>
                 <a href="#contact" class="nav-link">Контакты</a>
             </div>
         </div>
@@ -489,7 +338,7 @@
             <h1 class="hero-title blood-text">WHISPER OF DARKNESS</h1>
             <p class="hero-subtitle">Российская метал-группа | Основана в 2021</p>
             <div class="hero-buttons">
-                <a href="#gallery" class="btn-white">Фото</a>
+                <a href="gallery.html" class="btn-white">Фотогалерея</a>
                 <a href="#contact" class="btn-dark">Контакты</a>
             </div>
         </div>
@@ -564,35 +413,6 @@
             </div>
         </div>
     </section>
-
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2 class="section-title blood-text">ФОТОАЛЬБОМ ГРУППЫ</h2>
-            <p class="gallery-subtitle">Нажмите на фото для просмотра</p>
-            <div class="gallery-grid">
-                <!-- Фотографии добавляются через JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Модальное окно для фото -->
-    <div id="galleryModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div class="modal-nav">
-                <button class="nav-btn prev-btn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-btn next-btn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <img id="modalImage" src="" alt="Whisper Of Darkness">
-            <div class="image-counter">
-                <span id="currentImage">1</span> из <span id="totalImages">23</span>
-            </div>
-        </div>
-    </div>
 
     <section id="contact" class="contact">
         <div class="container">
@@ -688,108 +508,19 @@
     </footer>
 
     <script>
-        // Весь JavaScript код встроен прямо здесь
-        console.log("✅ Сайт Whisper Of Darkness загружен!");
-
-        const galleryImages = [
-            "images/foto1.jpg", "images/foto2.jpg", "images/foto3.jpg",
-            "images/foto4.jpg", "images/foto5.jpg", "images/foto6.jpg", 
-            "images/foto7.jpg", "images/foto8.jpg", "images/foto9.jpg",
-            "images/foto10.jpg", "images/foto11.jpg", "images/foto12.jpg",
-            "images/foto13.jpg", "images/foto14.jpg", "images/foto15.jpg",
-            "images/foto16.jpg", "images/foto17.jpg", "images/foto18.jpg",
-            "images/foto19.jpg", "images/foto20.jpg", "images/foto21.jpg",
-            "images/foto22.jpg", "images/foto23.jpg"
-        ];
-
-        function initGallery() {
-            console.log("🖼️ Загружаем галерею:", galleryImages.length, "фото");
-            const galleryGrid = document.querySelector('.gallery-grid');
-            
-            galleryImages.forEach(function(imageUrl, index) {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item blood-card';
-                
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = 'Whisper Of Darkness - Фото ' + (index + 1);
-                img.className = 'gallery-img';
-                img.setAttribute('data-index', index);
-                
-                galleryItem.appendChild(img);
-                galleryGrid.appendChild(galleryItem);
-            });
-            
-            document.querySelectorAll('.gallery-img').forEach(function(img) {
-                img.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    openModal(index);
-                });
-            });
-        }
-
-        let currentImageIndex = 0;
-
-        function openModal(index) {
-            currentImageIndex = index;
-            const modal = document.getElementById('galleryModal');
-            const modalImage = document.getElementById('modalImage');
-            
-            modalImage.src = galleryImages[currentImageIndex];
-            document.getElementById('currentImage').textContent = currentImageIndex + 1;
-            document.getElementById('totalImages').textContent = galleryImages.length;
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('galleryModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function changeImage(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
-            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
-            
-            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
-            document.getElementById('currentImage').textContent = currentImageIndex + 1;
-        }
-
-        // Навешиваем обработчики событий
-        document.querySelector('.close-btn').addEventListener('click', closeModal);
-        document.querySelector('.prev-btn').addEventListener('click', function() { changeImage(-1); });
-        document.querySelector('.next-btn').addEventListener('click', function() { changeImage(1); });
-
-        document.getElementById('galleryModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            const modal = document.getElementById('galleryModal');
-            if (modal.style.display === 'block') {
-                if (e.key === 'Escape') closeModal();
-                if (e.key === 'ArrowLeft') changeImage(-1);
-                if (e.key === 'ArrowRight') changeImage(1);
-            }
-        });
-
+        // Плавная прокрутка для навигации
         document.querySelectorAll('.nav-link').forEach(function(link) {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
-        });
-
-        // Запускаем когда страница загрузится
-        document.addEventListener('DOMContentLoaded', function() {
-            initGallery();
         });
     </script>
 </body>
